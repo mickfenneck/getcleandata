@@ -6,13 +6,13 @@ run_analysis <- function(path) {
     titles <- read.table(paste(path,"/features.txt",sep=""))
     
     trainx <- read.table(paste(path,"train/X_train.txt",sep=""))
-    names(trainx) <- titles$V2
+    names(trainx) <- titles[2]
     trainy <- read.table(paste(path,"train/y_train.txt",sep=""))
     trainy <-  merge(x=trainy,y=activity_labels,by.x="V1",by.y="V1")
     train <- cbind(trainy[2],trainx)
     
     testx <- read.table(paste(path,"test/X_test.txt",sep=""))
-    names(testx) <- titles$V2
+    names(testx) <- titles[2]
     testy <- read.table(paste(path,"test/y_test.txt",sep=""))
     testy <- join <- merge(x=testy,y=activity_labels,by.x="V1",by.y="V1")
     test <- cbind(testy[2],testx)
