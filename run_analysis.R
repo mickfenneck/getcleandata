@@ -18,11 +18,12 @@ run_analysis <- function(path) {
     trainy <- read.table(paste(path,"train/y_train.txt",sep=""))
     testy <- read.table(paste(path,"test/y_test.txt",sep=""))
     y <- rbind(trainy,testy)
-    y <- merge(x=y,y=activity_labels,by.x="V1",by.y="V1") #non fa bene il merge <- porcoo#######
-    names(y)[2] <- "Labels"
-    
+    #converto la colonna a factor per modificare i levels
+    y$V1 <- as.factor(y$V1)
+    levels(y$V1) <- activity_labels$V2
+    names(y)[1] <- "Labels"
     #unisco y a x
-    data <- cbind(y[2],x)
+    data <- cbind(y[1],x)
 
     data
 }
