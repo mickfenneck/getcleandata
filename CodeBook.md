@@ -13,7 +13,7 @@ The script is divided in different "logical" parts:
  - Create a tidy dataset
  - Write the txt file.
 
-The code is self commented and I want to descrbe in a more accurate way only few lines of code.
+The code is self commented and I want to describe in a more accurate way only few lines of code.
  - `eraseCol <- grep("mean()|std()",names(x),invert=TRUE)` takes only the columns that contain mean and standard deviation
  - `y$V1 <- as.factor(y$V1)` converts to factor the activity_label column in order to change the levels.
  - `levels(y$V1) <- activity_labels$V2` changes the levels of activity_labels
