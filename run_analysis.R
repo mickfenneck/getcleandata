@@ -21,9 +21,16 @@ run_analysis <- function(path) {
     #converto la colonna a factor per modificare i levels
     y$V1 <- as.factor(y$V1)
     levels(y$V1) <- activity_labels$V2
-    names(y)[1] <- "Labels"
+    names(y)[1] <- "Activity"
+    #leggo subject
+    trainSub <- read.table(paste(path,"train/subject_train.txt",sep=""))
+    testSub <- read.table(paste(path,"test/subject_test.txt",sep=""))
+    k <- rbind(trainSub,testSub)
+    names(k)[1] <- "Subject"
+    
     #unisco y a x
-    data <- cbind(y[1],x)
-
-    data
+    data <- data.table(cbind(y[1],k,x))
+    tidyData <- data[,lapply(.SD, mean), by="Activity,Subject"]
+    write.table(tidyData, "tidyData.txt")
+    tidyData
 }
