@@ -13,7 +13,8 @@ The description of the datasets should be found here: `http://archive.ics.uci.ed
  - Open R/RStudio
  - Load data.table library with `library(data.table)`
  - Source the script contained in `run_analysis.R`
- - Call the function `run_analysis(path)`, `path` variable should be the path of "UCI HAR Dataset" directory.
+ - Set the working directory to the one that contains the UCI HAR Dataset
+ - Call the function `run_analysis()`
  
 ###The function returns:
  - The function return a data table containing the tidy dataset.
