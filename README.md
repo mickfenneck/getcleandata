@@ -1,7 +1,6 @@
-getcleandata
+#Getting and Cleaning Data - Johns Hopkins
 ============
 
-#Getting and Cleaning Data - Johns Hopkins Course
 ##Final Project
 
 The data you need to make this script work are self contined in the `./UCI HAR Dataset` directory.
