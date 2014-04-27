@@ -1,6 +1,3 @@
-## if using source from the directory of this reco, call as
-## data <- run_analysis(paste(getwd(),"/UCI HAR Dataset/",sep=""))
-
 run_analysis <- function(path) {
     #read activity_labels and titles
     activity_labels <-read.table(paste(path,"/activity_labels.txt",sep=""))
