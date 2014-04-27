@@ -1,6 +1,7 @@
-#Getting and Cleaning Data - Johns Hopkins
+#Getting and Cleaning Data
 
-##Final Project
+##Johns Hopkins University - Final Project
+
 This file contains the description of how this script works.
 
 The script is divided in different "logical" parts:
