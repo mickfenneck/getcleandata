@@ -1,26 +1,26 @@
-run_analysis <- function(path) {
+run_analysis <- function() {
     #read activity_labels and titles
-    activity_labels <-read.table(paste(path,"/activity_labels.txt",sep=""))
-    titles <- read.table(paste(path,"/features.txt",sep=""))
+    activity_labels <-read.table("./activity_labels.txt")
+    titles <- read.table("./features.txt")
     
     #read and merge the x datasets
-    trainx <- read.table(paste(path,"train/X_train.txt",sep=""))
-    testx <- read.table(paste(path,"test/X_test.txt",sep=""))
+    trainx <- read.table("./train/X_train.txt")
+    testx <- read.table("./test/X_test.txt")
     x <- rbind(trainx,testx)
     names(x) <- titles$V2
     eraseCol <- grep("mean()|std()",names(x),invert=TRUE)
     x[eraseCol] <- list(NULL)
     
     #read and merge the y datasets
-    trainy <- read.table(paste(path,"train/y_train.txt",sep=""))
-    testy <- read.table(paste(path,"test/y_test.txt",sep=""))
+    trainy <- read.table("./train/y_train.txt")
+    testy <- read.table("./test/y_test.txt")
     y <- rbind(trainy,testy)
     y$V1 <- as.factor(y$V1)
     levels(y$V1) <- activity_labels$V2
     names(y)[1] <- "Activity"
     #read subjects
-    trainSub <- read.table(paste(path,"train/subject_train.txt",sep=""))
-    testSub <- read.table(paste(path,"test/subject_test.txt",sep=""))
+    trainSub <- read.table("./train/subject_train.txt")
+    testSub <- read.table("./test/subject_test.txt")
     k <- rbind(trainSub,testSub)
     names(k)[1] <- "Subject"
     #merge y and x to data table
